@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+My Portfolio
+Overview
 
-## Project info
+Welcome to My Portfolio — a personal cybersecurity and penetration testing showcase.
+This website highlights my skills, certifications, experience, and contact information, built with modern web technologies to provide a smooth and interactive experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Technologies used: React.js, TypeScript, Vite, Tailwind CSS, Framer Motion, shadcn-ui
 
-## How can I edit this code?
+Focus: Penetration testing, offensive security tools, and cybersecurity certifications
 
-There are several ways of editing your application.
+Live Demo
 
-**Use Lovable**
+Check out the live website here:
+https://github.com/MShaheer15/my-portfolio
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Features
 
-Changes made via Lovable will be committed automatically to this repo.
+Hacker-style design with smooth animations
 
-**Use your preferred IDE**
+Responsive layout for desktop, tablet, and mobile
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Dark mode toggle
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Interactive skill charts and experience timeline
 
-Follow these steps:
+Downloadable resume
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Contact form with email & social links
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Getting Started
 
-# Step 3: Install the necessary dependencies.
-npm i
+To run this project locally, make sure you have Node.js installed.
+Then follow these steps:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Clone your repository
+git clone https://github.com/MShaheer15/my-portfolio.git
+
+# Navigate to the project folder
+cd my-portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Open your browser at http://localhost:5173 (Vite) to preview the website.
 
-**Use GitHub Codespaces**
+Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+src/ – All React components and pages
 
-## What technologies are used for this project?
+public/ – Static assets
 
-This project is built with:
+package.json – Project metadata and dependencies
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+tailwind.config.js – Tailwind CSS configuration
 
-## How can I deploy this project?
+tsconfig.json – TypeScript configuration
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Editing the Website
 
-## Can I connect a custom domain to my Lovable project?
+You can edit any content using your preferred IDE:
 
-Yes, you can!
+Open the project in VS Code (or any editor)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Modify components in src/components/ or pages in src/pages/
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Save your changes and the development server will auto-refresh
+
+Deployment
+
+To deploy the project:
+
+Build the optimized production version:
+
+npm run build
+
+
+Serve the build folder using any static hosting platform (Vercel, Netlify, GitHub Pages, etc.)
+
+Certifications & Skills
+
+Certifications:
+
+CPTS (Certified Penetration Testing Specialist)
+
+PJPT (Practical Junior Penetration Tester)
+
+CEH (Certified Ethical Hacker)
+
+PT1
+
+Google Cybersecurity
+
+Skills:
+
+Web & Network Penetration Testing
+
+API & Wireless Security Testing
+
+OWASP Top 10, SQLi, XSS, CSRF, SSRF
+
+Tools: Burp Suite, Metasploit, Nmap, SQLmap, Nessus, Wireshark
+
+Scripting: Python, Bash, JavaScript
+
+Linux & Windows environments
+
+License
+
+This project is for personal portfolio purposes. Do not copy or reuse content without permission.
