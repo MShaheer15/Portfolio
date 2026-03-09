@@ -49,10 +49,13 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-4"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-            <span className="text-foreground">Hi, I'm </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold min-h-[1.5em] flex items-center justify-center">
             <span className="gradient-text cyber-glow-text">
-              <TypewriterText text="Shaheer Siddiqui" />
+              <TypewriterText texts={[
+                "I'm Shaheer Siddiqui",
+                "I'm a Bug Bounty Hunter",
+                "I'm a Penetration Tester"
+              ]} />
             </span>
           </h1>
         </motion.div>

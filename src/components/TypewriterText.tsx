@@ -2,39 +2,64 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface TypewriterTextProps {
-  text: string;
+  texts: string[];
   delay?: number;
-  speed?: number;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseDuration?: number;
 }
 
-const TypewriterText = ({ text, delay = 500, speed = 100 }: TypewriterTextProps) => {
+const TypewriterText = ({
+  texts,
+  delay = 500,
+  typingSpeed = 100,
+  deletingSpeed = 50,
+  pauseDuration = 1500,
+}: TypewriterTextProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const [isTyping, setIsTyping] = useState(false);
+  const [textIndex, setTextIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const startTyping = setTimeout(() => {
-      setIsTyping(true);
-      let currentIndex = 0;
+    let timeout: NodeJS.Timeout;
 
-      const typingInterval = setInterval(() => {
-        if (currentIndex <= text.length) {
-          setDisplayedText(text.slice(0, currentIndex));
-          currentIndex++;
-        } else {
-          clearInterval(typingInterval);
-          // Keep cursor blinking after typing is done
-          setTimeout(() => {
-            setShowCursor(true);
-          }, 500);
-        }
-      }, speed);
+    const currentText = texts[textIndex % texts.length];
 
-      return () => clearInterval(typingInterval);
-    }, delay);
+    if (isDeleting) {
+      if (displayedText === '') {
+        setIsDeleting(false);
+        setTextIndex((prev) => prev + 1);
+        // Delay before starting to type the next word
+        timeout = setTimeout(() => {}, typingSpeed);
+      } else {
+        timeout = setTimeout(
+          () => setDisplayedText((prev) => prev.slice(0, -1)),
+          deletingSpeed
+        );
+      }
+    } else {
+      if (displayedText === currentText) {
+        timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
+      } else {
+        const nextChar = currentText.slice(0, displayedText.length + 1);
+        const delayToUse =
+          displayedText === '' && textIndex === 0 ? delay : typingSpeed;
+        timeout = setTimeout(() => setDisplayedText(nextChar), delayToUse);
+      }
+    }
 
-    return () => clearTimeout(startTyping);
-  }, [text, delay, speed]);
+    return () => clearTimeout(timeout);
+  }, [
+    displayedText,
+    isDeleting,
+    textIndex,
+    texts,
+    delay,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+  ]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -54,10 +79,10 @@ const TypewriterText = ({ text, delay = 500, speed = 100 }: TypewriterTextProps)
         {displayedText}
       </motion.span>
       <motion.span
-        className={`inline-block w-[3px] h-[1em] bg-primary ml-1 ${
+        className={`inline-block w-[4px] h-[1em] bg-primary ml-1 ${
           showCursor ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ verticalAlign: 'middle' }}
+        style={{ verticalAlign: 'middle', transition: 'opacity 0.1s' }}
       />
     </span>
   );

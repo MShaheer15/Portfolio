@@ -5,14 +5,44 @@ import { SiGoogle } from 'react-icons/si';
 
 const certifications = [
   {
-    name: 'CPTS',
-    fullName: 'Certified Penetration Testing Specialist',
-    issuer: 'Hack The Box',
-    date: '2024',
+    name: 'PEH / PT1',
+    fullName: 'Practical Ethical Hacking',
+    issuer: 'TCM Security',
+    date: '2023',
     icon: FaShieldAlt,
     color: 'from-emerald-500 to-cyan-500',
+    description: 'Foundation certification for practical ethical hacking and penetration testing workflows.',
+    url: 'https://assets.tryhackme.com/certification-certificate/68a67af01974073c398f57d0.pdf',
+  },
+  {
+    name: 'Google Cybersecurity',
+    fullName: 'Google Cybersecurity Professional Certificate',
+    issuer: 'Google',
+    date: '2023',
+    icon: SiGoogle,
+    color: 'from-blue-400 to-green-400',
+    description: 'Comprehensive cybersecurity fundamentals and incident response.',
+    url: 'https://coursera.org/share/2f0dba77aad98670d6aae83350dd01d8',
+  },
+  {
+    name: 'CPTS',
+    fullName: 'Certified Penetration Testing Specialist',
+    issuer: 'Hack The Box Academy',
+    date: '2024',
+    icon: FaShieldAlt,
+    color: 'from-purple-500 to-pink-500',
     description: 'Advanced penetration testing certification covering enterprise security assessments.',
-    credential: 'HTB-CPTS-2024',
+    url: 'https://academy.hackthebox.com/achievement/badge/d9637574-b22e-11f0-9254-bea50ffe6cb4',
+  },
+  {
+    name: 'CWES',
+    fullName: 'Certified Web Exploitation Specialist',
+    issuer: 'Hack The Box Academy',
+    date: '2024',
+    icon: FaCertificate,
+    color: 'from-orange-500 to-red-500',
+    description: 'Advanced web application exploitation and bug bounty methodologies.',
+    url: 'https://academy.hackthebox.com/achievement/badge/bd9f6fbc-3288-11f0-bcfd-bea50ffe6cb4',
   },
   {
     name: 'PJPT',
@@ -22,37 +52,7 @@ const certifications = [
     icon: FaShieldAlt,
     color: 'from-blue-500 to-violet-500',
     description: 'Hands-on certification for practical penetration testing skills.',
-    credential: 'TCM-PJPT-2023',
-  },
-  {
-    name: 'CEH',
-    fullName: 'Certified Ethical Hacker',
-    issuer: 'EC-Council',
-    date: '2023',
-    icon: FaUserGraduate,
-    color: 'from-red-500 to-orange-500',
-    description: 'Industry-recognized certification for ethical hacking methodologies.',
-    credential: 'ECC-CEH-2023',
-  },
-  {
-    name: 'PT1',
-    fullName: 'Penetration Testing Level 1',
-    issuer: 'INE Security',
-    date: '2022',
-    icon: FaCertificate,
-    color: 'from-purple-500 to-pink-500',
-    description: 'Foundation certification for web application penetration testing.',
-    credential: 'INE-PT1-2022',
-  },
-  {
-    name: 'Google Cybersecurity',
-    fullName: 'Google Cybersecurity Professional Certificate',
-    issuer: 'Google',
-    date: '2022',
-    icon: SiGoogle,
-    color: 'from-blue-400 to-green-400',
-    description: 'Comprehensive cybersecurity fundamentals and incident response.',
-    credential: 'GOOGLE-CYBER-2022',
+    url: 'https://certified.tcm-sec.com/e2a74e55-7a5d-4a1d-b1a0-6c8682fcf4da#acc.fUFVDwko',
   },
 ];
 
@@ -84,13 +84,16 @@ const Certifications = () => {
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
-            <motion.div
+            <motion.a
+              href={cert.url}
+              target="_blank"
+              rel="noopener noreferrer"
               key={cert.name}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group glass-card p-6 relative overflow-hidden"
+              className="group glass-card p-6 relative overflow-hidden block cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               {/* Gradient accent */}
               <div
@@ -121,25 +124,20 @@ const Certifications = () => {
               </p>
 
               {/* Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-border">
+              <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
                 <span className="text-xs text-muted-foreground">
                   {cert.issuer}
                 </span>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="text-primary hover:text-primary/80 transition-colors"
-                  aria-label={`View ${cert.name} credential`}
-                >
-                  <FaExternalLinkAlt className="text-sm" />
-                </motion.button>
+                <span className="inline-flex items-center gap-2 text-sm text-primary group-hover:text-primary/80 transition-colors font-medium">
+                  View Credential <FaExternalLinkAlt className="text-xs group-hover:-mt-1 group-hover:translate-x-1 transition-transform" />
+                </span>
               </div>
 
               {/* Hover glow effect */}
               <div
                 className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-gradient-to-br ${cert.color}`}
               />
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

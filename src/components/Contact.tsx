@@ -8,20 +8,20 @@ const contactInfo = [
   {
     icon: FaEnvelope,
     label: 'Email',
-    value: 'shaheer.siddiqui@cybersec.pro',
-    href: 'mailto:shaheer.siddiqui@cybersec.pro',
+    value: 'Shaheer Siddiqui',
+    href: 'mailto:shaheersiddiqui803@gmail.com',
   },
   {
     icon: FaLinkedin,
     label: 'LinkedIn',
     value: 'linkedin.com/in/shaheer-siddiqui',
-    href: 'https://linkedin.com/in/shaheer-siddiqui',
+    href: 'https://www.linkedin.com/in/shaheer-siddiqui-714412247/',
   },
   {
     icon: FaGithub,
     label: 'GitHub',
-    value: 'github.com/shaheer-siddiqui',
-    href: 'https://github.com/shaheer-siddiqui',
+    value: 'github.com/MShaheer15',
+    href: 'https://github.com/MShaheer15',
   },
   {
     icon: FaMapMarkerAlt,
@@ -216,11 +216,10 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting || isSubmitted}
-                className={`w-full py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${
-                  isSubmitted
+                className={`w-full py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${isSubmitted
                     ? 'bg-emerald-500 text-white'
                     : 'bg-primary text-primary-foreground hover:bg-primary/90 cyber-glow'
-                }`}
+                  }`}
                 whileHover={!isSubmitting && !isSubmitted ? { scale: 1.02 } : {}}
                 whileTap={!isSubmitting && !isSubmitted ? { scale: 0.98 } : {}}
               >
