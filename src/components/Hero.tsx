@@ -93,7 +93,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/16ItczBJZ2lm6qjb1pDtRXKFRKTsv8JTz/view?usp=sharing"
             download
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold transition-all cyber-glow hover:shadow-lg"
             whileHover={{ scale: 1.02, y: -2 }}
